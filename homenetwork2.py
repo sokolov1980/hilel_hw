@@ -9,12 +9,21 @@ if n1 <= n2 < n3:
 elif n2 <= n3 < n1:
     print("minimum: ", end=" ")
     print(n2)
-elif n3 <= n2 < n1:
+elif n3 < n2 <= n1:
     print("minimum: ", end=" ")
     print(n3)
 elif n1 <= n3 < n2:
     print("minimum: ", end=" ")
+    print(n1)
+elif n2 < n1 <= n3:
+    print("minimum: ", end=" ")
+    print(n2)
+elif n3 <= n1 < n2:
+    print("minimum: ", end=" ")
     print(n3)
+elif n1 < n3 <= n2:
+    print("minimum: ", end=" ")
+    print(n1)
 elif n3 == n2 == n1:
    print("All numbers equals")
 #выводим максимум
