@@ -30,15 +30,24 @@ elif n3 == n2 == n1:
 if n1 >= n2 > n3:
     print("maximum: ", end=" ")
     print(n1)
-elif n2 > n3 >= n1:
+elif n2 > n3 > n1:
     print("maximum: ", end=" ")
     print(n2)
-elif n3 > n2 >= n1:
+elif n3 >= n2 > n1:
     print("maximum: ", end=" ")
     print(n3)
+elif n1 >= n3 > n2:
+    print("maximum: ", end=" ")
+    print(n1)
+elif n3 > n1 >= n2:
+    print("maximum: ", end=" ")
+    print(n3)
+elif n2 > n1 >= n3:
+    print("maximum: ", end=" ")
+    print(n2)
 elif n1 > n3 >= n2:
     print("maximum: ", end=" ")
-    print(n3)
+    print(n1)
 elif n3 == n2 == n1:
    print("All numbers equals")
 #выводим среднеарифметическое
