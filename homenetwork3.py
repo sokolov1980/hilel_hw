@@ -26,16 +26,42 @@
 # except Exception as error:
 #     print(f"Error: {error}")
 
-#Користувач вводить два числа. Визначити, чи рівні ці числа, і, якщо ні, вивести їх на екран у порядку зростання
+# #Користувач вводить два числа. Визначити, чи рівні ці числа, і, якщо ні, вивести їх на екран у порядку зростання
+# try:
+#     n1 = int(input("Enter first number: "))
+#     n2 = int(input("Enter second number: "))
+#     if n1 < n2:
+#         print(f"numbers: {n1}; {n2}")
+#     elif n2 < n1:
+#         print(f"numbers: {n2}; {n1}")
+#     else:
+#         print("All numbers equals")
+# except ValueError as error:
+#     print("Enter only integer numbers please!")
+#     print(f"ValueError: {error}")
+# except Exception as error:
+#     print(f"Error: {error}")
+
+#Користувач вводить два числа та матем дію: + - * або /
 try:
     n1 = int(input("Enter first number: "))
     n2 = int(input("Enter second number: "))
-    if n1 < n2:
-        print(f"numbers: {n1}; {n2}")
-    elif n2 < n1:
-        print(f"numbers: {n2}; {n1}")
-    else:
-        print("All numbers equals")
+    user_select = str(input("Enter action: + - * / :"))
+    match user_select:
+        case '+':
+            result = (n1 + n2)
+            print(f"Result: {result}")
+        case '-':
+            result = (n1 - n2)
+            print(f"Result: {result}")
+        case '*':
+            result = (n1 * n2)
+            print(f"Result: {result}")
+        case '/':
+            result = (n1 / n2)
+            print(f"Result: {result}")
+        case _:
+            print("Incorrect action!")
 except ValueError as error:
     print("Enter only integer numbers please!")
     print(f"ValueError: {error}")
