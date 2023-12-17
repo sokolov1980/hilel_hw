@@ -2,7 +2,6 @@
 try:
     print("Enter the day of the week number (1-7)")
     user_select = int(input("Enter number: "))
-
     match user_select:
         case 1:
             print("Monday")
