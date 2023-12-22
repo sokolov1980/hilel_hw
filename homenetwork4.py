@@ -26,12 +26,35 @@
 #     print(f"Error: {error}")
 
 #Користувач вводить з клавіатури рядок, слово для пошуку, слово для заміни. Зробіть у рядку заміну
+# try:
+#     text = input("Enter the text: ")
+#     word = input("Enter word to search: ")
+#     word_r = input("Enter word to replace: ")
+#     text = text.replace(word, word_r )
+#     print(f"Modified text: {text}")
+# except Exception as error:
+#     print(f"Error: {error}")
+
+#Дано рядок. (зробити зрізи)
 try:
     text = input("Enter the text: ")
-    word = input("Enter word to search: ")
-    word_r = input("Enter word to replace: ")
-    text = text.replace(word, word_r )
-    print(f"Modified text: {text}")
+#виведіть третій символ
+    print(text[2:3])
+#виведіть передостанній символ
+    print(text[-2:-1])
+#виведіть перші п'ять символів
+    print(text[0:5])
+#виведіть весь рядок, крім двох останніх символів
+    print(text[0:-2])
+#У п'ятому рядку виведіть усі символи з парними індексами
+    print(text[0::2])
+# У шостому рядку виведіть усі символи з непарними індексами
+    print(text[1::2])
+#У сьомому рядку виведіть усі символи у зворотному порядку.
+    print(text[::-1])
+#У восьмому рядку виведіть усі символи рядка через один у зворотному порядку, починаючи з останнього
+    print(text[::-2])
+#У дев'ятому рядку виведіть довжину цього рядка
+    print(len(text))
 except Exception as error:
     print(f"Error: {error}")
-
