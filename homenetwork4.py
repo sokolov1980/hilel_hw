@@ -47,9 +47,9 @@ try:
 #виведіть весь рядок, крім двох останніх символів
     print(text[0:-2])
 #У п'ятому рядку виведіть усі символи з парними індексами
-    print(text[0::2])
-# У шостому рядку виведіть усі символи з непарними індексами
     print(text[1::2])
+# У шостому рядку виведіть усі символи з непарними індексами
+    print(text[0::2])
 #У сьомому рядку виведіть усі символи у зворотному порядку.
     print(text[::-1])
 #У восьмому рядку виведіть усі символи рядка через один у зворотному порядку, починаючи з останнього
@@ -58,3 +58,18 @@ try:
     print(len(text))
 except Exception as error:
     print(f"Error: {error}")
+
+#Додатково
+# try:
+#     text = input("Enter the line: ")
+#     dig = 0
+#     alp = 0
+#     for i in text:
+#         if i.isdigit():
+#             dig += 1
+#         elif i.isalpha():
+#             alp += 1
+#     print(f"Result number: {dig}")
+#     print(f"Result letter: {alp}")
+# except Exception as error:
+#     print(f"Error: {error}")
