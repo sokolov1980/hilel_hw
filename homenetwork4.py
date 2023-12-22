@@ -61,21 +61,22 @@
 
 #Додатково
 try:
-    text = input("Enter the text: ")
+    text = "користувач вводить рядок з клавіатури. порахуйте кількість літер, цифр: 1, 2.. у рядку!!!"
     dig = 0
-    spa = 0
+    pun = 0
     exc = 0
     for i in text:
         if i.isdigit():
             dig += 1
     for i in range(len(text)):
-        if text[i] == " ":
-            spa += 1
-        elif text[i] == "!":
+        if text[i] == "." or text[i] == "!" or text[i] == "," or text[i] == ":":
+            pun += 1
+    for i in range(len(text)):
+        if text[i] == "!":
             exc += 1
-    print(text.title())
+    print(text.capitalize())
     print(f"Result number: {dig}")
-    print(f"Result space: {spa}")
+    print(f"Result punctuation marks: {pun}")
     print(f"Result exclamation point: {exc}")
 except Exception as error:
     print(f"Error: {error}")
