@@ -61,7 +61,7 @@
 
 #Додатково
 try:
-    text = "користувач вводить рядок з клавіатури. порахуйте кількість літер, цифр: 1, 2.. у рядку!!!"
+    text = "користувач вводить рядок з клавіатури. порахуйте кількість літер, цифр: 1, 2 і далі у рядку!!!"
     dig = 0
     pun = 0
     exc = 0
@@ -74,9 +74,16 @@ try:
     for i in range(len(text)):
         if text[i] == "!":
             exc += 1
-    print(text.capitalize())
+    search_item = ". "
+    sentences = text.split(search_item)
+    result = []
+    for sentence in sentences:
+        result.append(sentence.capitalize())
+    result_sentence = search_item.join(result)
+    print(result_sentence)
     print(f"Result number: {dig}")
     print(f"Result punctuation marks: {pun}")
     print(f"Result exclamation point: {exc}")
 except Exception as error:
     print(f"Error: {error}")
+
