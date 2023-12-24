@@ -8,6 +8,7 @@ try:
     number = []
     number2 = []
     number3 = []
+    number4 = []
     for i in range(NUMS_SIZE):
         numbers.append(random.randint(MIN_NUMBER, MAX_NUMBER))
     print(numbers)
@@ -34,6 +35,12 @@ try:
     print(f"Sum a odd number: {result2}")
 
 #Добуток елементів з кратними індексами 3
+    result = 1
+    for i in numbers[3::3]:
+        result *= i
+    print(f"Index multiple 3 number: {numbers[3::3]}")
+    print(f"Multiplication a index multiple 3 number: {result}")
+
 
 #Добуток елементів між мінімальним та максимальним елементом;
 
