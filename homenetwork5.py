@@ -8,7 +8,6 @@ try:
     number = []
     number2 = []
     number3 = []
-    number4 = []
     for i in range(NUMS_SIZE):
         numbers.append(random.randint(MIN_NUMBER, MAX_NUMBER))
     print(numbers)
@@ -43,6 +42,7 @@ try:
 
 
 #Добуток елементів між мінімальним та максимальним елементом;
+
 
 #Суму елементів, що знаходяться між першим та останнім позитивними елементами.
 
