@@ -5,17 +5,22 @@ try:
     MIN_NUMBER = -20
     MAX_NUMBER = 20
     numbers = []
-    number = 0
-    result = 0
+    number = []
+
     for i in range(NUMS_SIZE):
         numbers.append(random.randint(MIN_NUMBER, MAX_NUMBER))
     print(numbers)
 
 #Суму негативних чисел
-    for i in range(len(numbers)):
-        if i < 0:
-            result += numbers
-    print(result)
+    for i in range(NUMS_SIZE):
+        if (numbers[i] < 0):
+            number.append(numbers[i])
+            result = sum(number)
+    print(f"List a negative number: {number}")
+    print(f"Sum a negative number: {result}")
+
+
+
 #Суму парних чисел
 
 
