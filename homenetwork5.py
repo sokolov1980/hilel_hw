@@ -6,25 +6,32 @@ try:
     MAX_NUMBER = 20
     numbers = []
     number = []
-
+    number2 = []
+    number3 = []
     for i in range(NUMS_SIZE):
         numbers.append(random.randint(MIN_NUMBER, MAX_NUMBER))
     print(numbers)
 
 #Суму негативних чисел
     for i in range(NUMS_SIZE):
-        if (numbers[i] < 0):
+        if numbers[i] < 0:
             number.append(numbers[i])
             result = sum(number)
     print(f"List a negative number: {number}")
     print(f"Sum a negative number: {result}")
 
-
-
 #Суму парних чисел
-
-
-#Суму непарних чисел
+    for i in range(NUMS_SIZE):
+        if numbers[i] % 2 == 0:
+            number2.append(numbers[i])
+            result = sum(number2)
+        else: #Суму непарних чисел
+            number3.append(numbers[i])
+            result2 = sum(number3)
+    print(f"List a even number: {number2}")
+    print(f"Sum a even number: {result}")
+    print(f"List a odd number: {number3}")
+    print(f"Sum a odd number: {result2}")
 
 #Добуток елементів з кратними індексами 3
 
