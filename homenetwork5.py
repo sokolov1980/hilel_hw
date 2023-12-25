@@ -34,13 +34,18 @@ try:
     print(f"Sum a odd number: {result2}")
 
 #Добуток елементів з кратними індексами 3
+#v1
     result = 1
     for i in numbers[3::3]:
         result *= i
     print(f"Index multiple 3 number: {numbers[3::3]}")
     print(f"Multiplication a index multiple 3 number: {result}")
-
-
+#v2
+    result = 1
+    for i in range(1, len(numbers)):
+        if i % 3 == 0:
+            result *= numbers[i]
+    print(f"Multiplication a index multiple 3 number: {result}")
 #Добуток елементів між мінімальним та максимальним елементом;
 
 
