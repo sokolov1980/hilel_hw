@@ -64,12 +64,9 @@
 # #Суму елементів, що знаходяться між першим та останнім позитивними елементами.
 #     result = 0
 #     for i in range(NUMS_SIZE):
-#         try:
-#             if numbers[i] > 0:
-#                 num1 = i
-#                 break
-#         except Exception as error:
-#             print(f"no positive numbers: {error}")
+#         if numbers[i] > 0:
+#             num1 = i
+#             break
 #     for i in range(NUMS_SIZE - 1, -1, -1):
 #         if numbers[i] > 0:
 #             num2 = i
@@ -82,39 +79,39 @@
 # except Exception as error:
 #     print(f"Error: {error}")
 
-#2.Є список цілих, заповнений випадковими числами. На підставі даних цього масиву потрібно
-try:
-    import random
-    NUMS_SIZE = 10
-    MIN_NUMBER = -15
-    MAX_NUMBER = 15
-    numbers = []
-    for i in range(NUMS_SIZE):
-        numbers.append(random.randint(MIN_NUMBER, MAX_NUMBER))
-    print(numbers)
-
-#Створити список цілих, що містить лише парні числа з першого списку;
-    number1 = []
-    number2 = []
-    for i in range(NUMS_SIZE):
-        if numbers[i] % 2 == 0:
-            number1.append(numbers[i])
-#Створити список цілих, що містить лише непарні числа з першого списку;
-        else:
-            number2.append(numbers[i])
-    print(f"List a even number: {number1}")
-    print(f"List a odd number: {number2}")
-
-#cтворити список цілих, що містить лише негативні числа з першого списку
-    number3 = []
-    number4 = []
-    for i in range(NUMS_SIZE):
-        if numbers[i] < 0:
-            number3.append(numbers[i])
-#cтворити список цілих, що містить лише позитивні числа з першого списку
-        elif numbers[i] > 0: # что бы ноль не попал
-            number4.append(numbers[i])
-    print(f"List a negative number: {number3}")
-    print(f"List a positive number: {number4}")
-except Exception as error:
-    print(f"Error: {error}")
+# #2.Є список цілих, заповнений випадковими числами. На підставі даних цього масиву потрібно
+# try:
+#     import random
+#     NUMS_SIZE = 10
+#     MIN_NUMBER = -15
+#     MAX_NUMBER = 15
+#     numbers = []
+#     for i in range(NUMS_SIZE):
+#         numbers.append(random.randint(MIN_NUMBER, MAX_NUMBER))
+#     print(numbers)
+#
+# #Створити список цілих, що містить лише парні числа з першого списку;
+#     number1 = []
+#     number2 = []
+#     for i in range(NUMS_SIZE):
+#         if numbers[i] % 2 == 0:
+#             number1.append(numbers[i])
+# #Створити список цілих, що містить лише непарні числа з першого списку;
+#         else:
+#             number2.append(numbers[i])
+#     print(f"List a even number: {number1}")
+#     print(f"List a odd number: {number2}")
+#
+# #cтворити список цілих, що містить лише негативні числа з першого списку
+#     number3 = []
+#     number4 = []
+#     for i in range(NUMS_SIZE):
+#         if numbers[i] < 0:
+#             number3.append(numbers[i])
+# #cтворити список цілих, що містить лише позитивні числа з першого списку
+#         elif numbers[i] > 0: # что бы ноль не попал
+#             number4.append(numbers[i])
+#     print(f"List a negative number: {number3}")
+#     print(f"List a positive number: {number4}")
+# except Exception as error:
+#     print(f"Error: {error}")
