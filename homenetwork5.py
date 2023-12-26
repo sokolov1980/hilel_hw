@@ -47,8 +47,21 @@ try:
             result *= numbers[i]
     print(f"Multiplication a index multiple 3 number: {result}")
 #Добуток елементів між мінімальним та максимальним елементом;
+    result = 1
+    number4 = []
+    j = numbers.index(min(numbers))
+    k = numbers.index(max(numbers))
+    for i in range(NUMS_SIZE):
+        if j < k:
+            number4 = numbers[j:k+1]
+        else:
+            number4 = numbers[k:j+1]
+    for i in range(len(number4)):
+        result *= number4[i]
 
-
+    print(number4)
+    print(f"List : {result}")
+    print(f"List : {j} {k}")
 #Суму елементів, що знаходяться між першим та останнім позитивними елементами.
 
 except Exception as error:
