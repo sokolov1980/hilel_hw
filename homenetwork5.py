@@ -1,4 +1,4 @@
-#У списку цілих, заповненому випадковими числами обчислити:
+#1.У списку цілих, заповненому випадковими числами обчислити:
 try:
     import random
     NUMS_SIZE = 10
@@ -62,6 +62,24 @@ try:
     print(f"Multiplying numbers on the interval min max : {result}")
 
 #Суму елементів, що знаходяться між першим та останнім позитивними елементами.
+    result = 0
+    for i in range(NUMS_SIZE):
+        try:
+            if numbers[i] > 0:
+                num1 = i
+                break
+        except Exception as error:
+            print(f"no positive numbers: {error}")
+    for i in range(NUMS_SIZE - 1, -1, -1):
+        if numbers[i] > 0:
+            num2 = i
+            break
+    for i in range(num1+1,num2):
+        result += numbers[i]
+    print(f"Index the first and last number : {num1}, {num2}")
+    print(f"sum of numbers in the interval : {result}")
 
 except Exception as error:
     print(f"Error: {error}")
+
+#2Є список цілих, заповнений випадковими числами. На підставі даних цього масиву потрібно
