@@ -45,7 +45,7 @@ try:
     for i in range(1, len(numbers)):
         if i % 3 == 0:
             result *= numbers[i]
-    print(f"Multiplication a index multiple 3 number: {result}")
+    print(f"Multiplication a index multiple 3 number v2: {result}")
 #Добуток елементів між мінімальним та максимальним елементом;
     result = 1
     number4 = []
@@ -58,10 +58,9 @@ try:
             number4 = numbers[k:j+1]
     for i in range(len(number4)):
         result *= number4[i]
+    print(f"List interval min max: {number4}")
+    print(f"Multiplying numbers on the interval min max : {result}")
 
-    print(number4)
-    print(f"List : {result}")
-    print(f"List : {j} {k}")
 #Суму елементів, що знаходяться між першим та останнім позитивними елементами.
 
 except Exception as error:
