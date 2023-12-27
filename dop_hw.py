@@ -34,4 +34,13 @@ print(diagonal)
 print(f"Min and Max: {mini} {maxi}")
 
 #ввести з клавіатури порядковий номер стовпця - вивести цифри з цього стовпця на екран (аналогічно зробити з рядком)
+n1 = int(input("Enter column number: "))
+column=[]
+for i in range(NUM):
+    for j in range(NUM):
+        if i == n1:
+            column.append(matrix[i][NUM])
+            print(column)
+n2 = int(input("Enter line number: "))
+
 
