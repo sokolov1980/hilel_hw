@@ -23,7 +23,7 @@ try:
 except Exception as error:
     print(f"Error: {error}")
 
-#Напишіть функцію для знаходження мінімуму у списку цілих
+#2.Напишіть функцію для знаходження мінімуму у списку цілих
 
 
 def get_minimum(num: list[int]) -> int:
@@ -36,30 +36,65 @@ try:
 except Exception as error:
     print(f"Error: {error}")
 
-#Напишіть функцію, яка визначає кількість простих чисел у списку цілих
+#3.Напишіть функцію, яка визначає кількість простих чисел у списку цілих
 
 
-def get_prime_number(num: list[int]) -> int:
-    prime_numbers = []
-    for i in range(NUMS_SIZE):
-        if i > 1:
-            if i % i == 0:
-                break
-            else:
-                prime_numbers.append(i)
-            return prime_numbers[i]
-        else:
-            break
-    # for i in range(NUMS_SIZE):
-    #     if numbers[i] < 1:
-    #         return False
-    #     elif number % i == 0:
-    #         prime_numbers.append(numbers)
-    #     return prime_numbers
+# def get_prime_number(num: list[int]) -> int:
+#     prime_numbers = []
+#     k = 0
+#     for i in range(NUMS_SIZE):
+#         if i > 1:
+#             for j in range:
+#             if i % i == 0:
+#                 break
+#             else:
+#                 prime_numbers.append(i)
+#             return prime_numbers[len[i]]
+#         else:
+#             break
+#
+#
+#
+# try:
+#     pn = get_prime_number(numbers)
+#     print(f"Result: {pn}")
+# except Exception as error:
+#     print(f"Error: {error}")
+
+#4.Напишіть функцію, яка видаляє зі списку ціле задане число
+#
+def delete_number(num: list[int]) -> list:
+    for i in numbers:
+        if i == n1:
+            numbers.remove(i)
+    return numbers
 
 
 try:
-    pn = get_prime_number(numbers)
-    print(f"Result: {pn}")
+    n1 = int(input("Enter number to delete: "))
+    dn = delete_number(numbers)
+    print(f"Result: {dn}")
 except Exception as error:
     print(f"Error: {error}")
+
+#5.Напишіть функцію, яка отримує два списки як параметр і повертає список, що містить елементи обох списків.
+
+
+
+#6.Напишіть функцію, яка обчислює ступінь кожного елемента списку цілих.
+# Функція повертає новий список, який містить отримані результати
+
+exp = int(input("Enter exponent: "))
+result = 1
+numbers2 = numbers
+for i in range(NUMS_SIZE):
+    if exp > 0:
+        new_list = numbers2 * numbers
+        # result = i ** exp
+        # new_list = list(result)
+print(f"list: {new_list}")
+
+# for i in range(NUMS_SIZE):
+#     gen_result = (i * i for exp in numbers)
+#     square_numbers = list(gen_result)
+# print(square_numbers)
