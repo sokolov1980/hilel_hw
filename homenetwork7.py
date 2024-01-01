@@ -84,17 +84,17 @@ except Exception as error:
 #6.Напишіть функцію, яка обчислює ступінь кожного елемента списку цілих.
 # Функція повертає новий список, який містить отримані результати
 
-exp = int(input("Enter exponent: "))
-result = 1
-numbers2 = numbers
-for i in range(NUMS_SIZE):
-    if exp > 0:
-        new_list = numbers2 * numbers
-        # result = i ** exp
-        # new_list = list(result)
-print(f"list: {new_list}")
 
-# for i in range(NUMS_SIZE):
-#     gen_result = (i * i for exp in numbers)
-#     square_numbers = list(gen_result)
-# print(square_numbers)
+def exponent_list(num: list[int], exp) -> list:
+    for i in numbers:
+        result.append(i**exp)
+    return result
+
+
+try:
+    exp = int(input("Enter exponent: "))
+    result = []
+    en = exponent_list(numbers, exp)
+    print(f"Result exponentiation: {en}")
+except Exception as error:
+    print(f"Error: {error}")
