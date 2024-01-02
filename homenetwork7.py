@@ -17,6 +17,7 @@ def list_multiplication(num: list[int]) -> int:
 
 
 try:
+    result = 1
     mult = list_multiplication(numbers)
     print(f"Result multiplication: {mult}")
 
@@ -39,27 +40,28 @@ except Exception as error:
 #3.Напишіть функцію, яка визначає кількість простих чисел у списку цілих
 
 
-# def get_prime_number(num: list[int]) -> int:
-#     prime_numbers = []
-#     k = 0
-#     for i in range(NUMS_SIZE):
-#         if i > 1:
-#             for j in range:
-#             if i % i == 0:
-#                 break
-#             else:
-#                 prime_numbers.append(i)
-#             return prime_numbers[len[i]]
-#         else:
-#             break
-#
-#
-#
-# try:
-#     pn = get_prime_number(numbers)
-#     print(f"Result: {pn}")
-# except Exception as error:
-#     print(f"Error: {error}")
+
+def quantity_prime_number(numbers: list[int]) -> int:
+    qua = 0
+    for number in numbers:
+        if get_prime_number(number):
+            qua += 1
+    return qua
+
+
+def get_prime_number(number) -> int:
+    if number <= 1: #ограничение - простые считаем от двух и выше
+        return False
+    for i in range(2, int(number ** 0.5) + 1): #ограничение - если простое, то можно излечь целый корень
+        if number % i == 0:
+            return False
+    return True
+
+try:
+    pn = quantity_prime_number(numbers)
+    print(f"Result quantity prime number: {pn}")
+except Exception as error:
+    print(f"Error: {error}")
 
 #4.Напишіть функцію, яка видаляє зі списку ціле задане число
 #
