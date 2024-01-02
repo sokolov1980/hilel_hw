@@ -41,19 +41,19 @@ except Exception as error:
 
 
 
-def quantity_prime_number(numbers: list[int]) -> int:
+def quantity_prime_number(numbers: list[int]) -> int: #тут считаем кол-во
     qua = 0
-    for number in numbers:
-        if get_prime_number(number):
+    for num in numbers:
+        if get_prime_number(num):
             qua += 1
     return qua
 
 
-def get_prime_number(number) -> int:
-    if number <= 1: #ограничение - простые считаем от двух и выше
+def get_prime_number(num) -> int: #тут определяем простое или нет
+    if num <= 1: #ограничение - простые считаем от +2 и выше
         return False
-    for i in range(2, int(number ** 0.5) + 1): #ограничение - если простое, то можно излечь целый корень
-        if number % i == 0:
+    for i in range(2, int(num ** 0.5) + 1): #сокоащаем список - если простое, то можно излечь целый корень
+        if num % i == 0:
             return False
     return True
 
