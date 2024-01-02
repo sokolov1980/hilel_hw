@@ -73,13 +73,32 @@ def delete_number(num: list[int]) -> list:
 try:
     n1 = int(input("Enter number to delete: "))
     dn = delete_number(numbers)
-    print(f"Result: {dn}")
+    print(f"Result after delete: {dn}")
 except Exception as error:
     print(f"Error: {error}")
 
 #5.Напишіть функцію, яка отримує два списки як параметр і повертає список, що містить елементи обох списків.
+numbers1 = []
+numbers2 = []
+for i in range(5):
+    numbers1.append(random.randint(-10, 10))
+print(numbers1)
+for i in range(5):
+    numbers2.append(random.randint(-10, 10))
+print(numbers2)
 
 
+def sum_list(num1: list[int], num2: list[int]) -> list:
+    summary = numbers1 + numbers2
+    return summary
+
+
+try:
+    summary = []
+    sl = sum_list(numbers1, numbers2)
+    print(f"Result new list: {sl}")
+except Exception as error:
+    print(f"Error: {error}")
 
 #6.Напишіть функцію, яка обчислює ступінь кожного елемента списку цілих.
 # Функція повертає новий список, який містить отримані результати
