@@ -40,14 +40,17 @@ except Exception as error:
 #Написати рекурсивну функцію, яка обчислює суму всіх чисел у діапазоні від a до b.
 #Користувач вводить a та b. Проілюструйте роботу функції прикладом.
 
+
 def calculation_sum(num1, num2):
     if num1 < num2:
-        return num1 + num2
-    return calculation_sum(num1 - num2, num2)
+        return num1
+    return num1 + calculation_sum(num1, num2 - 1)
 
-number = int(input("Enter positive number: "))
-    result = star_in_a_row(number)
-    print(result)
+
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter first number: "))
+result = calculation_sum(num1, num2)
+print(result)
 
 
 #Напишіть рекурсивну функцію, яка приймає одновимірний масив із 100 цілих чисел заповнених випадковим
