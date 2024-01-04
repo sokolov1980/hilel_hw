@@ -9,7 +9,7 @@ try:
     num = int(input("Enter number: "))
     exponent = int(input("Enter positive exponent: "))
     result = exponentiation(num, exponent)
-    print(result)
+    print(f"Result exponentiation: {result}")
 except Exception as error:
     print(f"Error: {error}")
 
@@ -20,11 +20,34 @@ except Exception as error:
 #Написати рекурсивну функцію, яка виводить N зірок у ряд, число N задає користувач.
 
 
+def star_in_a_row(number):
+    if number <= 1:
+        return '* '
+    return '* ' + star_in_a_row(number - 1)
+
+
+try:
+    number = int(input("Enter positive number: "))
+    result = star_in_a_row(number)
+    print(result)
+except Exception as error:
+    print(f"Error: {error}")
+
+# star_in_a_row(3) -> * + star_in_a_row(2) => ***
+# star_in_a_row(2) -> * + star_in_a_row(1) => **
+# star_in_a_row(1) => *
 
 #Написати рекурсивну функцію, яка обчислює суму всіх чисел у діапазоні від a до b.
 #Користувач вводить a та b. Проілюструйте роботу функції прикладом.
 
+def calculation_sum(num1, num2):
+    if num1 < num2:
+        return num1 + num2
+    return calculation_sum(num1 - num2, num2)
 
+number = int(input("Enter positive number: "))
+    result = star_in_a_row(number)
+    print(result)
 
 
 #Напишіть рекурсивну функцію, яка приймає одновимірний масив із 100 цілих чисел заповнених випадковим
