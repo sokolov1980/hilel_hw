@@ -57,5 +57,9 @@ try:
 except Exception as error:
     print(f"Error: {error}")
 
+# calculation_sum(4, 5) -> 2 + calculation_sum(3, 5) => 14
+# calculation_sum(3, 5) -> 2 + calculation_sum(2, 5) => 5
+# calculation_sum(2, 5) => 2
+
 #Напишіть рекурсивну функцію, яка приймає одновимірний масив із 100 цілих чисел заповнених випадковим
 # чином і знаходить позицію, з якої починається послідовність із 10 чисел, сума яких мінімальна.
