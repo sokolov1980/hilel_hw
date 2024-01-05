@@ -50,16 +50,18 @@ try:
     num1 = int(input("Enter first number: "))
     num2 = int(input("Enter first number: "))
     if num1 >= num2:
-        print(f"Error")
+        print(f"Error: enter the smaller range limit first or the values are equal")
     else:
         result = calculation_sum(num1, num2)
         print(result)
 except Exception as error:
     print(f"Error: {error}")
 
-# calculation_sum(4, 5) -> 2 + calculation_sum(3, 5) => 14
-# calculation_sum(3, 5) -> 2 + calculation_sum(2, 5) => 5
-# calculation_sum(2, 5) => 2
+# calculation_sum(3, 3) -> 3 + calculation_sum(2, 3) => 6
+# calculation_sum(2, 3) -> 2 + calculation_sum(1, 3) => 3
+# calculation_sum(1, 3) => 1
 
 #Напишіть рекурсивну функцію, яка приймає одновимірний масив із 100 цілих чисел заповнених випадковим
 # чином і знаходить позицію, з якої починається послідовність із 10 чисел, сума яких мінімальна.
+
+
