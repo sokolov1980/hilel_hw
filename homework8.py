@@ -11,7 +11,7 @@ for val in number:
 # Мобільний номер телефону (тільки цифри, можлива наявність плюса, довжина номера) +380501112233
 number_m = [input("Enter mobile telephone number: ")]
 for val in number_m:
-    if re.match(r'[+]?\d{12}', val) and len(val) == 13:
+    if re.match(r'^[+]?\d{12}$', val):
         print(f"Your mobile telephone number: {number_m}")
     else:
         print(f"Incorrect input. Enter twelve digits without separators!")
