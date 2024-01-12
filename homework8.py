@@ -28,4 +28,13 @@ for val in mail:
 
 
 # ПІБ клієнта (3 слова, мінімальна довжина 2 символи, максимальна довжина 20)
-
+name = [input("Enter your Full name (last/first/patronymic): ")]
+for val in name:
+    # # v1 первая фамилия м.б. через дефис. каждое слово с большой буквы. учитываем пробелы
+    # if re.findall(r'[A-Z][a-z]{2,20}([-][A-Z][a-z]{2,20})?\s[A-Z][a-z]{2,20}\s[A-Z][a-z]{2,20}$', val):
+    #     print(f"Your Full name: {name}")
+    #v2 для укр кирилицы. Ї та Є добавкой, новую г и апостроф не нашел
+    if re.findall(r'[А-ЯЇЄ][а-яЇє]{2,20}([-][А-ЯЇЄ][а-яїє]{2,20})?\s[А-ЯЇЄ][а-яїє]{2,20}\s[А-ЯЇЄ][а-яїє]{2,20}$', val):
+        print(f"Your Full name: {name}")
+    else:
+        print(f"Incorrect input. Enter a first name, patronymic and last name from 2 to 20 characters.")
