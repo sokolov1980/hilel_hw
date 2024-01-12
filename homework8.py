@@ -20,8 +20,11 @@ for val in number_m:
 # email (наявність @, домену: gmail.com наприклад, мінімальна довжина та максимальна на ваш вибір)
 mail = [input("Enter mail address: ")]
 for val in mail:
-    if re.match(r'')
-
+    # до собаки от 3 до 20 букв или цифр. также м.б. точка и тире
+    if re.findall(r'^[\w.\-]{3,20}@gmail\.com$', val):
+        print(f"Your email address: {mail}")
+    else:
+        print(f"Incorrect input. Enter a name from 3 to 20 characters. E-mail must contain @ and gmail.com")
 
 
 # ПІБ клієнта (3 слова, мінімальна довжина 2 символи, максимальна довжина 20)
