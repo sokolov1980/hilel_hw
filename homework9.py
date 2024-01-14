@@ -1,10 +1,11 @@
-# 1. Даний текстовий файл. Необхідно створити новий файл, який потрібно переписати з першого файлу всі слова, що складаються не менше ніж з семи літер.
+# 1. Даний текстовий файл. Необхідно створити новий файл, який потрібно переписати з першого файлу всі слова, що
+# складаються не менше ніж з семи літер.
 import re
 
 with open("text10.txt", "r") as source, open("text7dit.txt", "w") as destination:
     words = source.read()
     for word in words.split():
-        text7 = "".join(re.findall(r'(^[A-Za-z]{7,30}$)', word))
+        text7 = "".join(re.findall(r'(^[A-Za-z]{7,}$)', word))
         if text7:
             destination.write(text7 + " ")
 
@@ -13,7 +14,7 @@ with open("text10.txt", "r") as source, open("text7dit.txt", "w") as destination
 with open("text10.txt", "r") as source:
     word_count = 0
     for word in words.split():
-        word_count += len(re.findall(r'^([A-Za-z]+[.,]?){1,30}$', word))
+        word_count += len(re.findall(r'^([A-Za-z]+[.,]?){1,}$', word))
     print(f"Word count: {word_count}")
 
 # 3.Створіть програму, яка перевіряє текст на неприпустимі слова.
