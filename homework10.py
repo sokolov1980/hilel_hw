@@ -24,7 +24,7 @@ class City:
 
     @c_name.setter
     def c_name(self, c_name):
-        if 1 < len(c_name) < 100:
+        if 0 < len(c_name) < 100:
             self.__city_name = c_name
 
     @property
@@ -33,7 +33,7 @@ class City:
 
     @region.setter
     def region(self, region):
-        if 4 < len(region) < 100:
+        if 3 < len(region) < 100:
             self.__region = region
 
     @property
@@ -42,7 +42,7 @@ class City:
 
     @country.setter
     def country(self, country):
-        if 4 < len(country) < 60:
+        if 3 < len(country) < 60:
             self.__country = country
 
     @property
@@ -54,9 +54,40 @@ class City:
         if 500 < city_res < 38000000:
             self.__city_residents = city_res
 
-    def show_info(self):
-        print(f"Name: {self.__name}\nAge: {self.__age}\nHobby: {self.hobby}")
+    @property
+    def postcode(self):
+        return self.__postcode
 
+    @postcode.setter
+    def postcode(self, postcode):
+        if 4 < len(postcode) < 10:
+            self.__postcode = postcode
+
+    @property
+    def tel_code(self):
+        return self.__telephone_code
+
+    @tel_code.setter
+    def tel_code(self, tel_code):
+        if 2 < len(tel_code) < 8:
+            self.__telephone_code = tel_code
+
+    def show_info(self):
+        print(f"City: {self.c_name} | Region: {self.region} | Country: {self.country} | City residents: {self.city_res} "
+              f"| Postcode: {self.postcode} | Telephone code: {self.tel_code}")
+
+
+try:
+    city1 = City("Kharkov", "Kharkovska oblast", "Ukraine", 2000000, "61000", "+38057")
+    city1.show_info()
+    city2 = City("London", "Big London", "England", 9500000, "", "+4420")
+    city2.show_info()
+    #вопрос. как вывести если заргужаем списком
+    cities = [City("Kharkov", "Kharkovska oblast", "Ukraine", 2000000, "61000", "+38057"),
+                          City("London", "Big London", "England", 9500000, "", "+4420")]
+    cities.show_info()
+except Exception as error:
+    print(f"Error: {error}")
 
 #Завдання 2:
 #Створіть клас "Країна". Необхідно зберігати в полях класу: назву країни, назву континенту, кількість жителів
