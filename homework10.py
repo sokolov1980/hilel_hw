@@ -77,15 +77,25 @@ class City:
               f"| Postcode: {self.postcode} | Telephone code: {self.tel_code}")
 
 
+class Cities:
+    def __init__(self, cities: list[City] = None):
+        self.cities = cities
+
+    def show_cities(self):
+        for city in self.cities:
+            city.show_info()
+            print()
+
 try:
     city1 = City("Kharkov", "Kharkovska oblast", "Ukraine", 2000000, "61000", "+38057")
     city1.show_info()
     city2 = City("London", "Big London", "England", 9500000, "", "+4420")
     city2.show_info()
-    #вопрос. как вывести если заргужаем списком
-    cities = [City("Kharkov", "Kharkovska oblast", "Ukraine", 2000000, "61000", "+38057"),
+
+    cities: list[City] = [City("Kharkov", "Kharkovska oblast", "Ukraine", 2000000, "61000", "+38057"),
                           City("London", "Big London", "England", 9500000, "", "+4420")]
-    cities.show_info()
+    list_city = Cities(cities)
+    list_city.show_cities()
 except Exception as error:
     print(f"Error: {error}")
 
