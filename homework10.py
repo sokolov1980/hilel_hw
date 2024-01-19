@@ -97,3 +97,37 @@ except Exception as error:
 #Завдання 2:
 #Створіть клас "Країна". Необхідно зберігати в полях класу: назву країни, назву континенту, кількість жителів
 # країни, телефонний код країни, назву столиці, назву міст країни. Реалізуйте доступ до окремих полів (Інкапсуляція).
+
+
+class Country:
+    __country = "no country"
+    __continent = "no name"
+    __country_residents = 100000
+    __telephone_code = "no code"
+    __capital = "no name"
+
+    def __init__(self, country, continent, country_res, tel_code, capital):
+        self.country = country
+        self.continent = continent
+        self.country_res = country_res
+        self.tel_code = tel_code
+        self.capital = capital
+
+    @property
+    def country(self):
+        return self.__country
+
+    @country.setter
+    def country(self, country):
+        if 3 < len(country) < 60:
+            self.__country = country
+
+    @property
+    def continent(self):
+        return self.__continent
+
+    @continent.setter
+    def continent(self, continent):
+        if 5 < len(continent) < 15:
+            self.__continent = continent
+
