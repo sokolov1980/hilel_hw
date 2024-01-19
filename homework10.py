@@ -42,7 +42,7 @@
 #
 #     @country.setter
 #     def country(self, country):
-#         if 3 < len(country) < 60:
+#         if 2 < len(country) < 60:
 #             self.__country = country
 #
 #     @property
@@ -98,21 +98,6 @@
 #Створіть клас "Країна". Необхідно зберігати в полях класу: назву країни, назву континенту, кількість жителів
 # країни, телефонний код країни, назву столиці, назву міст країни. Реалізуйте доступ до окремих полів (Інкапсуляція).
 
-class City:
-    __city_name = "no name"
-
-    def __init__(self, c_name):
-        self.c_name = c_name
-
-    @property
-    def c_name(self):
-        return self.__city_name
-
-    @c_name.setter
-    def c_name(self, c_name):
-        if 0 < len(c_name) < 100:
-            self.__city_name = c_name
-
 
 class Country:
     __country = "no country"
@@ -122,13 +107,13 @@ class Country:
     __capital = "no name"
     __cities = "no name"
 
-    def __init__(self, country, continent, country_res, tel_code, capital, cities: list[City] = None):
+    def __init__(self, country, continent, country_res, tel_code, capital, cities):
         self.country = country
         self.continent = continent
         self.country_res = country_res
         self.tel_code = tel_code
         self.capital = capital
-        self.__cities = cities
+        self.cities = cities
 
     @property
     def country(self):
@@ -136,7 +121,7 @@ class Country:
 
     @country.setter
     def country(self, country):
-        if 3 < len(country) < 60:
+        if 2 < len(country) < 60:
             self.__country = country
 
     @property
@@ -163,7 +148,7 @@ class Country:
 
     @tel_code.setter
     def tel_code(self, tel_code):
-        if 1 < len(tel_code) < 6:
+        if 0 < len(tel_code) < 6:
             self.__telephone_code = tel_code
 
     @property
@@ -177,19 +162,16 @@ class Country:
 
     def show_info(self):
         print(f"Country: {self.country} | Continent: {self.continent} | Country residents: {self.country_res} "
-              f"| Telephone code: {self.tel_code} | Capital: {self.capital} |")
-
-
-# class City:
-#     __city_name = "no name"
+              f"| Telephone code: {self.tel_code} | Capital: {self.capital} | City: {self.cities}")
 
 
 try:
-    countries: list[Country] = [Country("Ukrain", "Eurasia", 44000000, "+38", "Kiev")]
-    cities = [("Kharkov", "Kiev", "Lviv")]
+    countries: list[Country] = [Country("Ukraine", "Eurasia", 44000000, "+38", "Kiev", "Kharkov, Kiev, Lviv"),
+                                Country("Poland", "Eurasia", 38000000, "+48", "Warsaw", "Warsaw, Poznan"),
+                                Country("USA", "North America", 334000000, "+1", "Washington", "New-York, Chicago"),
+                                Country("A", "Long name for the test", -5000, "", "Rt", "")]
     for country in countries:
         country.show_info()
-
 except Exception as error:
     print(error)
 
