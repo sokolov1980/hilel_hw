@@ -77,25 +77,20 @@ class City:
               f"| Postcode: {self.postcode} | Telephone code: {self.tel_code}")
 
 
-class Cities:
-    def __init__(self, cities: list[City] = None):
-        self.cities = cities
-
-    def show_cities(self):
-        for city in self.cities:
-            city.show_info()
-            print()
-
 try:
+    # v1
     city1 = City("Kharkov", "Kharkovska oblast", "Ukraine", 2000000, "61000", "+38057")
     city1.show_info()
     city2 = City("London", "Big London", "England", 9500000, "", "+4420")
     city2.show_info()
-
+    # v2
     cities: list[City] = [City("Kharkov", "Kharkovska oblast", "Ukraine", 2000000, "61000", "+38057"),
-                          City("London", "Big London", "England", 9500000, "", "+4420")]
-    list_city = Cities(cities)
-    list_city.show_cities()
+                          City("London", "Big London", "England", 9500000, "", "+4420"),
+                          City("Paris", "Ile-de-France", "France", 2200000, "75000", "+331"),
+                          City("Bobruysk", "", "", 0 , "", "")]
+    for city in cities:
+        city.show_info()
+
 except Exception as error:
     print(f"Error: {error}")
 
