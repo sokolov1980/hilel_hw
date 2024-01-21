@@ -42,38 +42,6 @@ class Faculty(Academy):
         print(f"Faculty: {self.name_faculty}")
 
 
-class Person(Faculty):
-    __name_person = "John Dou"
-    __sex = "doesn't matter"
-
-    def __init__(self, name_academy, name_faculty, name_person=None, sex=None):
-        super().__init__(name_academy, name_faculty)
-        self.__name_person = name_person
-        self.__sex = sex
-
-    @property
-    def name_person(self):
-        return self.__name_person
-
-    @name_person.setter
-    def name_person(self, name_person):
-        if 10 < len(name_person) < 60:
-            self.__name_person = name_person
-
-    @property
-    def sex(self):
-        return self.__sex
-
-    @sex.setter
-    def sex(self, sex):
-        if sex == "Male" or sex == "Female":
-            self.__sex = sex
-
-    def show_info(self):
-        super().show_info()
-        print(f"Person: {self.name_person}, Sex: {self.sex}")
-
-
 class Subject(Faculty):
     __subject = "Subject X"
 
@@ -95,14 +63,25 @@ class Subject(Faculty):
         print(f"Subject: {self.subject}")
 
 
-class Student(Person):
+class Student(Faculty):
+    __name_student = "John Dou"
     __age = "no 18 years old"
     __education = "secondary"
 
-    def __init__(self, name_academy, name_faculty, name_person, sex, age=None, education=None):
-        super().__init__(name_academy, name_faculty, name_person, sex)
+    def __init__(self, name_academy, name_faculty, name_student, age=None, education=None):
+        super().__init__(name_academy, name_faculty)
+        self.__name_student = name_student
         self.__age = age
         self.__education = education
+
+    @property
+    def name_student(self):
+        return self.__name_student
+
+    @name_student.setter
+    def name_student(self, name_student):
+        if 10 < len(name_student) < 60:
+            self.__name_student = name_student
 
     @property
     def age(self):
@@ -115,18 +94,28 @@ class Student(Person):
 
     def show_info(self):
         super().show_info()
-        print(f"Age: {self.age}, Education: {self.education}")
+        print(f"Name student: {self.name_student}, Age: {self.age}, Education: {self.education}")
 
 
-class Teacher(Person, Subject):
+class Teacher(Subject):
+    __name_teacher = "John Dou"
     __age_t = "no 24 years old"
     __academic_degree = "absent"
 
-    def __init__(self, name_academy, name_faculty, name_person, sex, subject, age_t=None, academic_degree=None):
-        Person.__init__(self, name_academy, name_faculty, name_person, sex)
-        Subject.__init__(self, name_academy, name_faculty, subject)
+    def __init__(self, name_academy, name_faculty, subject, name_teacher=None, age_t=None, academic_degree=None):
+        super().__init__(name_academy, name_faculty, subject)
+        self.__name_teacher = name_teacher
         self.__age_t = age_t
         self.__academic_degree = academic_degree
+
+    @property
+    def name_teacher(self):
+        return self.__name_teacher
+
+    @name_teacher.setter
+    def name_teacher(self, name_teacher):
+        if 10 < len(name_teacher) < 60:
+            self.__name_teacher = name_teacher
 
     @property
     def age_t(self):
@@ -139,16 +128,17 @@ class Teacher(Person, Subject):
 
     def show_info(self):
         super().show_info()
-        print(f"Age: {self.age_t}, Academic degree: {self.academic_degree}")
+        print(f"Name teacher: {self.name_teacher}, Age: {self.age_t}, Academic degree: {self.academic_degree}")
 
-class Group(Student, Teacher):
+
+class Person(Student, Teacher):
     __name_group = "some"
     __quantity = "no data"
 
-    def __init__(self, name_academy, name_faculty, name_person, sex, age, education, age_t, academic_degree,
-                 name_group=None, quantity=None):
+    def __init__(self, name_academy, name_faculty, name_person, sex, age, education, subject, age_t,
+                 academic_degree, name_group=None, quantity=None):
         Student.__init__(self, name_academy, name_faculty, name_person, sex, age, education)
-        Student.__init__(self, name_academy, name_faculty, name_person, sex, age_t, academic_degree)
+        Teacher.__init__(self, name_academy, name_faculty, name_person, sex, subject, age_t, academic_degree)
         self.__name_group = name_group
         self.__quantity = quantity
 
@@ -173,3 +163,12 @@ class Group(Student, Teacher):
     def show_info(self):
         super().show_info()
         print(f"Name group: {self.name_group}, Quantity: {self.quantity}")
+
+
+first_group = Group("Hogwarts", "Gryffindor", "Garry Potter", "Male", 19,
+                    "secondary", "Severus Snape", "Male", "potions making", 35,
+                    "doctor")
+first_group.show_info()
+print(Group.mro())
+
+#name_academy, name_faculty, name_person, sex, age, education, age_t, academic_degree, name_group, quantity
