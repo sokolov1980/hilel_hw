@@ -44,7 +44,7 @@ class Subject:
             self.__subject = subject
 
     def show_info(self):
-        print(f"Subject: {self.subject}")
+        print(f"{self.subject}", end=' | ')
 
 
 class Student(Person):
@@ -101,37 +101,28 @@ class Teacher(Person):
         print(f"Experience: {self.experience}, Academic degree: {self.academic_degree}")
 
 
-class Teacher(Person):
-    __experience = 0
-    __academic_degree = "absent"
+class Employee(Person):
+    __position = "absent"
 
-    def __init__(self, name, age, experience=None, academic_degree=None):
+    def __init__(self, name, age, position=None):
         super().__init__(name, age)
-        self.__experience = experience
-        self.__academic_degree = academic_degree
+        self.__position = position
 
     @property
-    def experience(self):
-        return self.__experience
-
-    @experience.setter
-    def experience(self, experience):
-        if 0 < experience:
-            self.__experience = experience
-
-    @property
-    def academic_degree(self):
-        return self.__academic_degree
+    def position(self):
+        return self.__position
 
     def show_info(self):
         super().show_info()
-        print(f"Experience: {self.experience}, Academic degree: {self.academic_degree}")
+        print(f" Position: {self.position}")
 
 
 class Academy:
     __name_academy = "Academy"
 
     def __init__(self, name_academy=None):
+        self.subjects = []
+        self.employees = []
         self.teachers = []
         self.students = []
         self.name_academy = name_academy
@@ -145,6 +136,12 @@ class Academy:
         if 5 < len(name_academy) < 40:
             self.__name_academy = name_academy
 
+    def add_subject(self, subject):
+        self.subjects.append(subject)
+
+    def add_employee(self, employee):
+        self.employees.append(employee)
+
     def add_teacher(self, teacher):
         self.teachers.append(teacher)
 
@@ -153,6 +150,12 @@ class Academy:
 
     def show_info(self):
         print(f"Academy: {self.name_academy}")
+        print("Subjects:")
+        for subject in self.subjects:
+            subject.show_info()
+        print("\nEmployees:")
+        for employee in self.employees:
+            employee.show_info()
         print("Teachers:")
         for teacher in self.teachers:
             teacher.show_info()
@@ -163,19 +166,29 @@ class Academy:
 
 try:
     academy = Academy("Great Academy")
+    subjects: list[Subject] = [Subject("Mathematics"), Subject("Physics"), Subject("Computer science")]
+    employees: list[Employee] = [Employee("Oleg Olegovich Bodanov", 54, "rector"),
+                                 Employee("Vladimir Shevchenko", 47, "dean")]
     teachers: list[Teacher] = [Teacher("Fedor Fedorovich Fedorov", 40, 10, "doctor"),
                                Teacher("Elena Ivanovna Fedorova", 38, 7, "candidate")]
     students: list[Student] = [Student("Ivan Petrov", 19, 2, "secondary"),
                                Student("Vasya Ivanov", 19, 2, "secondary"),
                                Student("Petya Vasilyev", 19, 2, "secondary"),
                                Student("Anna Petrova", 18,  1, "secondary")]
+    for subject in subjects:
+        academy.add_subject(subject)
+    for employee in employees:
+        academy.add_employee(employee)
     for teacher in teachers:
         academy.add_teacher(teacher)
-
     for student in students:
         academy.add_student(student)
-
+    academy.add_student(Student("Helen Bond", 19, 2, "secondary")) # можем отдельно добавлять студента
     academy.show_info()
 except Exception as error:
     print(error)
 print(Academy.mro())
+print(Student.mro())
+print(Teacher.mro())
+print(Employee.mro())
+print(Subject.mro())
