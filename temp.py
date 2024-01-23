@@ -25,7 +25,7 @@ class Person:
             self.__age = age
 
     def show_info(self):
-        print(f"Name: {self.name}, Age: {self.age}")
+        print(f"Name: {self.name}, Age: {self.age}", end=' ')
 
 
 class Subject:
@@ -74,13 +74,12 @@ class Student(Person):
         print(f"Year: {self.year}, Education: {self.education}")
 
 
-class Teacher(Person, Subject):
+class Teacher(Person):
     __experience = 0
     __academic_degree = "absent"
 
-    def __init__(self, name, age, subject, experience=None, academic_degree=None):
-        Person.__init__(self, name, age)
-        Subject.__init__(self, subject)
+    def __init__(self, name, age, experience=None, academic_degree=None):
+        super().__init__(name, age)
         self.__experience = experience
         self.__academic_degree = academic_degree
 
@@ -98,17 +97,43 @@ class Teacher(Person, Subject):
         return self.__academic_degree
 
     def show_info(self):
-        Person.show_info(self)
-        Subject.show_info(self)
+        super().show_info()
         print(f"Experience: {self.experience}, Academic degree: {self.academic_degree}")
 
 
-class Academy(Teacher, Student):
+class Teacher(Person):
+    __experience = 0
+    __academic_degree = "absent"
+
+    def __init__(self, name, age, experience=None, academic_degree=None):
+        super().__init__(name, age)
+        self.__experience = experience
+        self.__academic_degree = academic_degree
+
+    @property
+    def experience(self):
+        return self.__experience
+
+    @experience.setter
+    def experience(self, experience):
+        if 0 < experience:
+            self.__experience = experience
+
+    @property
+    def academic_degree(self):
+        return self.__academic_degree
+
+    def show_info(self):
+        super().show_info()
+        print(f"Experience: {self.experience}, Academic degree: {self.academic_degree}")
+
+
+class Academy:
     __name_academy = "Academy"
 
-    def __init__(self, name, age, subject, experience, academic_degree, name_s, age_s, year, education, name_academy=None):
-        Teacher.__init__(self, name, age, subject, experience, academic_degree)
-        Student.__init__(self, name_s, age_s, year, education)
+    def __init__(self, name_academy=None):
+        self.teachers = []
+        self.students = []
         self.name_academy = name_academy
 
     @property
@@ -120,21 +145,37 @@ class Academy(Teacher, Student):
         if 5 < len(name_academy) < 40:
             self.__name_academy = name_academy
 
+    def add_teacher(self, teacher):
+        self.teachers.append(teacher)
+
+    def add_student(self, student):
+        self.students.append(student)
+
     def show_info(self):
-        Teacher.show_info(self)
-        Student.show_info(self)
         print(f"Academy: {self.name_academy}")
+        print("Teachers:")
+        for teacher in self.teachers:
+            teacher.show_info()
+        print("Students:")
+        for student in self.students:
+            student.show_info()
 
 
-test = Academy("Ivan", 32, "Mathematics", 4, "doctor", "Fedor",
-               20, 2, "secondary", "Great Academy")
-test.show_info()
+try:
+    academy = Academy("Great Academy")
+    teachers: list[Teacher] = [Teacher("Fedor Fedorovich Fedorov", 40, 10, "doctor"),
+                               Teacher("Elena Ivanovna Fedorova", 38, 7, "candidate")]
+    students: list[Student] = [Student("Ivan Petrov", 19, 2, "secondary"),
+                               Student("Vasya Ivanov", 19, 2, "secondary"),
+                               Student("Petya Vasilyev", 19, 2, "secondary"),
+                               Student("Anna Petrova", 18,  1, "secondary")]
+    for teacher in teachers:
+        academy.add_teacher(teacher)
+
+    for student in students:
+        academy.add_student(student)
+
+    academy.show_info()
+except Exception as error:
+    print(error)
 print(Academy.mro())
-
-tests: list = [Student("Ivan", 20, 2, "secondary"),
-               Student("Vasya", 20, 2, "secondary"),
-               Student("Petya", 20, 2, "secondary"),
-               Teacher("Fedor", 32, "Mathematics", 4, "doctor")]
-
-for test in tests:
-    test.show_info()
